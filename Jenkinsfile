@@ -22,6 +22,7 @@ node {
     
  stage('Remove Previous Container'){
 	try{
+        sh "sudo su"
 		def dockerRm = 'docker rm -f myweb'
 		sshagent(['docker-dev']) {
                 sh "ssh -o StrictHostKeyChecking=no ubuntu@54.86.30.148 ${dockerRm}"
