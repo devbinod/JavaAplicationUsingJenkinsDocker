@@ -22,10 +22,12 @@ node {
     
  stage('Remove Previous Container'){
 	try{
-        sh "usermod -aG docker $USER"
+        
 
 		def dockerRm = 'docker rm -f myweb'
 		sshagent(['docker-dev']) {
+                sh "ssh -o StrictHostKeyChecking=no ubuntu@54.86.30.148 usermod -aG docker $USER"
+
                 sh "ssh -o StrictHostKeyChecking=no ubuntu@54.86.30.148 ${dockerRm}"
 		}
 	}catch(error){
