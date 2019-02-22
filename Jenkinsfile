@@ -23,9 +23,13 @@ node {
  stage('Remove Previous Container'){
 	try{
         
+
 		def dockerRm = 'docker rm -f myweb'
 		sshagent(['docker-dev']) {
-                sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.82.154 ${dockerRm}"
+                sh "ssh -o StrictHostKeyChecking=no ubuntu@54.86.30.148 ${dockerRm}"
+                sh "ssh -o StrictHostKeyChecking=no ubuntu@54.86.30.148"
+                sh "${dockerRm}"
+
 		}
 	}catch(error){
 		//  do nothing if there is an exception
