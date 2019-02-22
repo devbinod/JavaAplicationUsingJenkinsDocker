@@ -25,7 +25,7 @@ node {
         
 		def dockerRm = 'docker rm -f myweb'
 		sshagent(['docker-dev']) {
-                sh "ssh -o StrictHostKeyChecking=no ubuntu@54.86.30.148 ${dockerRm}"
+                sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.82.154 ${dockerRm}"
 		}
 	}catch(error){
 		//  do nothing if there is an exception
